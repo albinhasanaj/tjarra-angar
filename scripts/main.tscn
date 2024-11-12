@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxsmdtuuhij5u"]
+[gd_scene load_steps=9 format=3 uid="uid://dejwk70ysd3ax"]
 
 [ext_resource type="Texture2D" uid="uid://cw2majejvnugg" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_kiwsi"]
 [ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_kuelw"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_yvd2o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53lld"]
 albedo_texture = ExtResource("1_kiwsi")
@@ -18,64 +19,6 @@ background_mode = 2
 sky = SubResource("Sky_7470q")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="GDScript" id="GDScript_b6vgg"]
-script/source = "extends CharacterBody3D
-
-@onready var head = $head
-
-var current_speed = 5.0
-
-const walking_speed = 5.0
-const sprinting_speed = 8.0
-const crouching_speed = 3.0
-
-const jump_velocity = 4.5
-
-const mouse_sens = 0.15
-
-var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
-
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-func _input(event):
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
-
-
-
-
-func _physics_process(delta):
-	
-	if Input.is_action_pressed(\"sprint\"):
-		current_speed = sprinting_speed
-	else:
-		current_speed = walking_speed
-	
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = jump_velocity
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector(\"left\", \"right\", \"forward\", \"backward\")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
-
-	move_and_slide()
-"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7tdh5"]
 
@@ -100,7 +43,7 @@ shadow_enabled = true
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206066, 0)
-script = SubResource("GDScript_b6vgg")
+script = ExtResource("3_yvd2o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996884, 0)
