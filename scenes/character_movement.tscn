@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://un2cbtxwfbxe"]
+[gd_scene load_steps=10 format=3 uid="uid://un2cbtxwfbxe"]
 
 [ext_resource type="Texture2D" uid="uid://cw2majejvnugg" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_bui6w"]
 [ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_iwpjb"]
@@ -21,6 +21,9 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7tdh5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yswvj"]
+height = 1.2
 
 [node name="world" type="Node3D"]
 
@@ -45,11 +48,18 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206066, 0)
 script = ExtResource("3_rgopi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+[node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996884, 0)
 shape = SubResource("CapsuleShape3D_7tdh5")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586155, 0)
+shape = SubResource("CapsuleShape3D_yswvj")
 
 [node name="head" type="Node3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player/head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="player"]
+target_position = Vector3(0, 2, 0)
