@@ -1,23 +1,34 @@
 extends CharacterBody3D
 
+# Player nodes
 @onready var head = $head
+@onready var standing_collision_shape: CollisionShape3D = $standing_collision_shape
+@onready var crouching_collision_shape: CollisionShape3D = $crouching_collision_shape
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 
+# Speed vars
 var current_speed = 5.0
 const walking_speed = 5.0
 const sprinting_speed = 8.0
 const crouching_speed = 3.0
+
+# Movement vars
+var crouching_depth =-0.3
 const jump_velocity = 4.5
+var lerp_speed = 10.0
+
+# input vars
+var direction = Vector3.ZERO
 const mouse_sens = 0.15
 
-var lerp_speed = 10.0
-var direction = Vector3.ZERO
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var crouching_depth =-0.3
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
+	#Mouse looking logic
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
@@ -29,18 +40,30 @@ func _input(event):
 		get_tree().quit()
 	
 func _physics_process(delta):
+	# Handle movement state
 	
-	
+	#Crouching
 	if Input.is_action_pressed("crouch"):
+		
 		current_speed = crouching_speed
 		head.position.y = lerp(head.position.y,1.8 + crouching_depth,delta*lerp_speed)
-	else:
+		
+		standing_collision_shape.disabled = true
+		crouching_collision_shape.disabled = false
+		
+	elif !ray_cast_3d.is_colliding():
+		
+	# Standing logic
+		standing_collision_shape.disabled = false
+		crouching_collision_shape.disabled = true
+		
 		head.position.y = lerp(head.position.y,1.8,delta*lerp_speed)
 		if Input.is_action_pressed("sprinting"):
+	# Sprinting logic
 			current_speed = sprinting_speed
 		else:
+	# Walking logic
 			current_speed = walking_speed
-	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -62,7 +85,4 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 		
-		
-	
-
 	move_and_slide()
