@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdc283og7agoe"]
+
+[ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_bf2ut"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bnj1g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dbrjj"]
+height = 1.2
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206066, 0)
+script = ExtResource("1_bf2ut")
+
+[node name="standing_collision_shape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996884, 0)
+shape = SubResource("CapsuleShape3D_bnj1g")
+
+[node name="crouching_collision_shape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586155, 0)
+shape = SubResource("CapsuleShape3D_dbrjj")
+
+[node name="head2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head2"]
+current = true
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)

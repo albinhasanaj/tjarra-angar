@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkec27bc7ksc"]
+
+[ext_resource type="PackedScene" uid="uid://crm5556ta48x6" path="res://assets/models/Train/Taginredning.fbx" id="1_1fc0r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2une"]
+size = Vector3(14.0384, 0.535156, 44.9896)
+
+[node name="Coach" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0504627, -0.0500031, 0.0164871)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0845642, -0.232422, 0.00263977)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Wall1" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 0, 0, 1, 7.34885, 4.44074, 0.0147896)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Wall2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -7.26065, 4.69314, 0.00263977)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Taginredning" parent="StaticBody3D" instance=ExtResource("1_1fc0r")]
