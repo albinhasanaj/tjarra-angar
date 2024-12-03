@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cui0tmsgro483"]
-
-[ext_resource type="PackedScene" uid="uid://ciisccm836hrp" path="res://assets/models/Nafs/nafs_animation.fbx" id="1_wvrm4"]
-
-[node name="NafsarNpc" type="Node3D"]
-
-[node name="nafs_animation" parent="." instance=ExtResource("1_wvrm4")]

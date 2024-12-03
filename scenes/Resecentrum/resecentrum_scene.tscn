@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2uq6wsu7tbpe"]
+
+[ext_resource type="Texture2D" uid="uid://cw2majejvnugg" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_pontd"]
+[ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_5ckml"]
+[ext_resource type="PackedScene" uid="uid://cl73lho4fc2au" path="res://assets/models/baseballbatprop.fbx" id="2_qj2ak"]
+[ext_resource type="PackedScene" uid="uid://bdc283og7agoe" path="res://scenes/player.tscn" id="3_b365f"]
+[ext_resource type="PackedScene" uid="uid://brklorg4pchqc" path="res://assets/models/knivprop.fbx" id="4_tas8o"]
+[ext_resource type="PackedScene" uid="uid://csjsoxyn64tjr" path="res://assets/models/ak47prop.fbx" id="6_f8os3"]
+[ext_resource type="PackedScene" uid="uid://bp0pdgvyak6yw" path="res://scenes/Resecentrum/resecentrum.tscn" id="7_i7d5a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53lld"]
+albedo_texture = ExtResource("1_pontd")
+uv1_triplanar = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o47vf"]
+panorama = ExtResource("2_5ckml")
+
+[sub_resource type="Sky" id="Sky_r177j"]
+sky_material = SubResource("PanoramaSkyMaterial_o47vf")
+
+[sub_resource type="Environment" id="Environment_2usll"]
+background_mode = 2
+sky = SubResource("Sky_r177j")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="world" type="Node3D"]
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3618, -0.5, -5.32849)
+use_collision = true
+size = Vector3(42.7236, 1, 9.34302)
+material = SubResource("StandardMaterial3D_53lld")
+
+[node name="env" type="Node3D" parent="."]
+transform = Transform3D(1, -5.25951e-06, 4.41356e-06, 5.25951e-06, 1, 1.6046e-05, -4.41356e-06, -1.6046e-05, 1, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_2usll")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_b365f")]
+transform = Transform3D(-0.143285, 0, -0.989681, 0, 1, 0, 0.989681, 0, -0.143285, -7.03469, 0.0241157, -6.71101)
+
+[node name="knivprop" parent="." instance=ExtResource("4_tas8o")]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, -3.15695, 2.38419e-07, -5.52609)
+top_level = true
+
+[node name="ak47prop" parent="." instance=ExtResource("6_f8os3")]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, -2.4642, 0, -6.68512)
+
+[node name="baseballbatprop" parent="." instance=ExtResource("2_qj2ak")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.97486, 0.371365, -4.19608)
+
+[node name="Resecentrum" parent="." instance=ExtResource("7_i7d5a")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 87.5924, 0.255608, 44.7035)
