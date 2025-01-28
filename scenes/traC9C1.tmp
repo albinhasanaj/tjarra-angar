@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5knyc80y7qll"]
+[gd_scene load_steps=15 format=3 uid="uid://b5knyc80y7qll"]
 
 [ext_resource type="PackedScene" uid="uid://bdk1j543q66cy" path="res://scenes/coach.tscn" id="1_5vigg"]
 [ext_resource type="PackedScene" uid="uid://cwq4x6kbwj0o" path="res://scenes/player.tscn" id="2_4jmxy"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kk7it252vqjx" path="res://interactable/chest.tscn" id="5_17sv7"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="6_mu3p2"]
 [ext_resource type="Script" path="res://inventory/slot_Data.gd" id="7_o7p77"]
-[ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="8_ssm0a"]
-[ext_resource type="PackedScene" uid="uid://bnj0ocsvr3xfq" path="res://item/pick_up/pick_up.tscn" id="9_5kvsf"]
-[ext_resource type="Resource" uid="uid://dot6pbpned5nc" path="res://item/items/apple.tres" id="10_71s2c"]
+[ext_resource type="Resource" uid="uid://dot6pbpned5nc" path="res://item/items/apple.tres" id="8_oef3m"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nr7d3"]
 panorama = ExtResource("3_p72u0")
@@ -24,34 +22,29 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8npaa"]
-size = Vector3(14.1784, 9.63702, 7)
+size = Vector3(14.1784, 9.63702, 8.09412)
 
-[sub_resource type="Resource" id="Resource_ctpb5"]
+[sub_resource type="Resource" id="Resource_tv820"]
 script = ExtResource("7_o7p77")
-item_data = ExtResource("8_ssm0a")
-quantity = 1
+item_data = ExtResource("8_oef3m")
+quantity = 25
 
-[sub_resource type="Resource" id="Resource_w0hhj"]
+[sub_resource type="Resource" id="Resource_pei3k"]
 script = ExtResource("6_mu3p2")
-slot_datas = Array[ExtResource("7_o7p77")]([null, SubResource("Resource_ctpb5"), null, null, null])
-
-[sub_resource type="Resource" id="Resource_7l14t"]
-script = ExtResource("7_o7p77")
-item_data = ExtResource("10_71s2c")
-quantity = 5
+slot_datas = Array[ExtResource("7_o7p77")]([SubResource("Resource_tv820"), null, null, null, null])
 
 [node name="TrainScene" type="Node3D"]
 
 [node name="Train" type="Node3D" parent="."]
 
 [node name="Coach" parent="Train" instance=ExtResource("1_5vigg")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0169559, 2.17172, 105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169559, 2.17172, 105)
 
 [node name="Coach2" parent="Train" instance=ExtResource("1_5vigg")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0223098, 2.21692, 123.178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169559, 2.17172, 150.139)
 
 [node name="Coach3" parent="Train" instance=ExtResource("1_5vigg")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0169559, 2.17172, 141.272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169559, 2.17172, 195.224)
 
 [node name="env" type="Node3D" parent="."]
 
@@ -63,25 +56,21 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_4jmxy")]
-transform = Transform3D(-1, 0.000205853, 0.000126467, 0.000205844, 1, -3.68717e-05, -0.000126482, -3.68198e-05, -1, 0.0423004, 2.98795, 96.5883)
+transform = Transform3D(-1, 0.000205853, 0.000126467, 0.000205844, 1, -3.68717e-05, -0.000126482, -3.68198e-05, -1, 0.661354, 5.59674, 87.7308)
 
 [node name="nafs_animation" parent="." instance=ExtResource("4_k4g62")]
-transform = Transform3D(0.457018, 0, -0.38876, 0, 0.6, 0, 0.38876, 0, 0.457018, 1.22448, 2.24559, 101.84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92669, 101.84)
 
 [node name="ChangeScene" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29798, 150.303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29798, 214.942)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChangeScene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0463738, 4.44241, -0.71196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0463738, 4.44241, -1.25902)
 shape = SubResource("BoxShape3D_8npaa")
 
 [node name="Chest" parent="." instance=ExtResource("5_17sv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22316, 2.15831, 87.4311)
-inventory_data = SubResource("Resource_w0hhj")
-
-[node name="PickUp" parent="." instance=ExtResource("9_5kvsf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04411, 3.53043, 87.6354)
-slot_data = SubResource("Resource_7l14t")
+inventory_data = SubResource("Resource_pei3k")
 
 [connection signal="body_entered" from="ChangeScene" to="Player" method="_on_change_scene_body_entered"]
-[connection signal="toggle_inventory" from="Chest" to="Player" method="toggle_external_inventory"]
+[connection signal="toggle_inventory" from="Chest" to="Player" method="toggle_inventory_interface"]
