@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp0pdgvyak6yw"]
+
+[ext_resource type="PackedScene" uid="uid://22dla6glnw0n" path="res://assets/map/resecentrum.fbx" id="1_ymqgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fd20"]
+size = Vector3(31.6495, 0.461914, 138.855)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf0gg"]
+size = Vector3(109.946, 0.597534, 55.1193)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqhpd"]
+size = Vector3(198.332, 1, 26.496)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1uvq6"]
+size = Vector3(265.807, 0.270996, 202.422)
+
+[node name="Resecentrum" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="resecentrum" parent="." instance=ExtResource("1_ymqgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16693, 0, 0.840602)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5633, -0.269043, -19.3293)
+shape = SubResource("BoxShape3D_3fd20")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.4084, -0.201233, -61.4712)
+shape = SubResource("BoxShape3D_wf0gg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.327, -0.677331, 37.2122)
+shape = SubResource("BoxShape3D_wqhpd")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.915, -0.630426, -9.68866)
+shape = SubResource("BoxShape3D_1uvq6")

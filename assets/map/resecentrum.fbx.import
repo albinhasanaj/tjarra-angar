@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://csjsoxyn64tjr"
-path="res://.godot/imported/ak47prop.fbx-045bfbb5cb584baafd3e64590c1c76c1.scn"
+uid="uid://22dla6glnw0n"
+path="res://.godot/imported/resecentrum.fbx-5955a2793b1fd75ca0d27eeaebb0a72a.scn"
 
 [deps]
 
-source_file="res://assets/models/ak47prop.fbx"
-dest_files=["res://.godot/imported/ak47prop.fbx-045bfbb5cb584baafd3e64590c1c76c1.scn"]
+source_file="res://assets/map/resecentrum.fbx"
+dest_files=["res://.godot/imported/resecentrum.fbx-5955a2793b1fd75ca0d27eeaebb0a72a.scn"]
 
 [params]
 
@@ -33,7 +33,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:AK-47_type_II_noBG": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Light": {
 "import/skip_import": true
 }
 }
