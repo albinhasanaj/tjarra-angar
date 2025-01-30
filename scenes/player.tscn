@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 [gd_scene load_steps=6 format=3 uid="uid://27nlaidlylw5"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_bf2ut"]
 [ext_resource type="PackedScene" uid="uid://bu3gfi0eu4pqo" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.tscn" id="2_5td6a"]
 [ext_resource type="PackedScene" uid="uid://c3qv5yb6vh3ch" path="res://scenes/menu_ui/settings_ui/settings.tscn" id="3_hilmp"]
-=======
-[gd_scene load_steps=14 format=3 uid="uid://cwq4x6kbwj0o"]
 
-[ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_bf2ut"]
 [ext_resource type="Resource" uid="uid://0dio8s2lxag3" path="res://test_inv.tres" id="2_sfloq"]
 [ext_resource type="Texture2D" uid="uid://c21s4ahwwb0tm" path="res://UnderStamina.png" id="3_vs4kt"]
 [ext_resource type="PackedScene" uid="uid://d0mv3c3d1fi3m" path="res://inventory/inventory.tscn" id="4_0baey"]
@@ -15,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://d1wjex03jhxpp" path="res://Stamina.png" id="4_fnw4v"]
 [ext_resource type="PackedScene" uid="uid://dp0vehpmduhsa" path="res://inventory/slot.tscn" id="7_arqd0"]
 [ext_resource type="PackedScene" uid="uid://do8yt8smh85m0" path="res://inventory/hot_bar_inventory.tscn" id="8_xfe25"]
->>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bnj1g"]
 
@@ -78,13 +73,11 @@ collision_mask = 4
 [node name="RayCast3D2" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
 
-<<<<<<< HEAD
 [node name="IngameMenu" parent="." instance=ExtResource("2_5td6a")]
 visible = false
 
 [node name="Settings" parent="." instance=ExtResource("3_hilmp")]
 visible = false
-=======
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
@@ -147,4 +140,3 @@ mouse_filter = 2
 [connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
 [connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]
->>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c

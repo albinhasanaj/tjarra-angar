@@ -24,7 +24,7 @@ signal toggle_inventory
 var health: int = 5
 
 func _ready():
-	PlayerManager. player = self
+	PlayerManager.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	stamina.value = stamina.max_value
 	
@@ -67,11 +67,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _input(event: InputEvent) -> void:
 	# Mouse looking logic
 	if event is InputEventMouseMotion:
-<<<<<<< HEAD
 		mouse_sens = SettingsManager.mouse_sens
 		rotate_y(deg_to_rad(-event.relative.x * 0.1 * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * 0.1 * mouse_sens))
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89),deg_to_rad(89))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 		
 		
 		#make you able to esc to close game
@@ -80,7 +79,6 @@ func _input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("menu"):
 		$IngameMenu.visible = not $IngameMenu.visible
-=======
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
@@ -88,23 +86,19 @@ func _input(event: InputEvent) -> void:
 	# Make you able to esc to close game
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
->>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 	
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory_interface()
 		
 	
-<<<<<<< HEAD
 	if $IngameMenu.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	#Crouching
-=======
 	if Input.is_action_just_pressed("interact"):
 		interact()
-
 
 
 func _physics_process(delta):
@@ -113,7 +107,6 @@ func _physics_process(delta):
 	# Handle movement state
 
 	# Crouching
->>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 	if Input.is_action_pressed("crouch"):
 		current_speed = crouching_speed
 		head.position.y = lerp(head.position.y, 1.8 + crouching_depth, delta * lerp_speed)
@@ -129,7 +122,7 @@ func _physics_process(delta):
 		head.position.y = lerp(head.position.y, 1.8, delta * lerp_speed)
 
 		# Sprinting logic
-		if Input.is_action_pressed("sprinting") and stamina.value > 0:  # Check if stamina is greater than 0
+		if Input.is_action_pressed("sprinting") and stamina.value > 0: # Check if stamina is greater than 0
 			stamina.value -= 1
 			can_regen = false
 			s_timer = 0
@@ -198,7 +191,6 @@ func interact() -> void:
 		interact_ray.get_collider().player_interact()
 		
 
-
 func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 	var pick_up = PickUp.instantiate()
 	pick_up.slot_data = slot_data
@@ -207,4 +199,3 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 
 func heal(heal_value: int) -> void:
 	health += heal_value
-	

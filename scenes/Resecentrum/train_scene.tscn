@@ -1,22 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://b5knyc80y7qll"]
 
-<<<<<<< HEAD:scenes/Resecentrum/train_scene.tscn
 [ext_resource type="PackedScene" uid="uid://cl33tm381c51f" path="res://scenes/coach.tscn" id="1_av5du"]
 [ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_1g8km"]
 [ext_resource type="PackedScene" uid="uid://27nlaidlylw5" path="res://scenes/player.tscn" id="3_qkmm3"]
 [ext_resource type="PackedScene" uid="uid://ejie0bmf38rv" path="res://scenes/nafs_animation.tscn" id="4_pcfnq"]
-=======
-[ext_resource type="PackedScene" uid="uid://bdk1j543q66cy" path="res://scenes/coach.tscn" id="1_5vigg"]
-[ext_resource type="PackedScene" uid="uid://cwq4x6kbwj0o" path="res://scenes/player.tscn" id="2_4jmxy"]
-[ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="3_p72u0"]
-[ext_resource type="PackedScene" uid="uid://bwvm3l6s5qdlw" path="res://scenes/nafs_animation.tscn" id="4_k4g62"]
 [ext_resource type="PackedScene" uid="uid://kk7it252vqjx" path="res://interactable/chest.tscn" id="5_17sv7"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="6_mu3p2"]
 [ext_resource type="Script" path="res://inventory/slot_Data.gd" id="7_o7p77"]
 [ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="8_ssm0a"]
 [ext_resource type="PackedScene" uid="uid://bnj0ocsvr3xfq" path="res://item/pick_up/pick_up.tscn" id="9_5kvsf"]
 [ext_resource type="Resource" uid="uid://dot6pbpned5nc" path="res://item/items/apple.tres" id="10_71s2c"]
->>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c:scenes/train_scene.tscn
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nr7d3"]
 panorama = ExtResource("2_1g8km")
