@@ -138,7 +138,7 @@ func _physics_process(delta):
 func _on_change_scene_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		# Later change to phase 3 in the game --> then make dynamic
-		get_tree().change_scene_to_file("res://scenes/character_movement.tscn")
+		get_tree().change_scene_to_file("res://scenes/Resecentrum/resecentrum_scene.tscn")
 
 	
 func toggle_inventory_interface() -> void:
