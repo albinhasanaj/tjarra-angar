@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://ct2oxuragvcps"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://b6ll4mp3brfrb"]
+>>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 
 [ext_resource type="PackedScene" uid="uid://ciisccm836hrp" path="res://assets/models/Nafs/nafs_animation.fbx" id="1_wvrm4"]
 

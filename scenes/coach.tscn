@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://cl33tm381c51f"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://bdk1j543q66cy"]
+>>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 
 [ext_resource type="PackedScene" uid="uid://crm5556ta48x6" path="res://assets/models/Train/Taginredning.fbx" id="1_1fc0r"]
 

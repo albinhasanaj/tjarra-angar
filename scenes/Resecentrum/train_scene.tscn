@@ -1,9 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cni1dqp56ye2n"]
+[gd_scene load_steps=18 format=3 uid="uid://b5knyc80y7qll"]
 
+<<<<<<< HEAD:scenes/Resecentrum/train_scene.tscn
 [ext_resource type="PackedScene" uid="uid://cl33tm381c51f" path="res://scenes/coach.tscn" id="1_av5du"]
 [ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_1g8km"]
 [ext_resource type="PackedScene" uid="uid://27nlaidlylw5" path="res://scenes/player.tscn" id="3_qkmm3"]
 [ext_resource type="PackedScene" uid="uid://ejie0bmf38rv" path="res://scenes/nafs_animation.tscn" id="4_pcfnq"]
+=======
+[ext_resource type="PackedScene" uid="uid://bdk1j543q66cy" path="res://scenes/coach.tscn" id="1_5vigg"]
+[ext_resource type="PackedScene" uid="uid://cwq4x6kbwj0o" path="res://scenes/player.tscn" id="2_4jmxy"]
+[ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="3_p72u0"]
+[ext_resource type="PackedScene" uid="uid://bwvm3l6s5qdlw" path="res://scenes/nafs_animation.tscn" id="4_k4g62"]
+[ext_resource type="PackedScene" uid="uid://kk7it252vqjx" path="res://interactable/chest.tscn" id="5_17sv7"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="6_mu3p2"]
+[ext_resource type="Script" path="res://inventory/slot_Data.gd" id="7_o7p77"]
+[ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="8_ssm0a"]
+[ext_resource type="PackedScene" uid="uid://bnj0ocsvr3xfq" path="res://item/pick_up/pick_up.tscn" id="9_5kvsf"]
+[ext_resource type="Resource" uid="uid://dot6pbpned5nc" path="res://item/items/apple.tres" id="10_71s2c"]
+>>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c:scenes/train_scene.tscn
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nr7d3"]
 panorama = ExtResource("2_1g8km")
@@ -19,6 +32,20 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8npaa"]
 size = Vector3(14.1784, 9.63702, 7)
+
+[sub_resource type="Resource" id="Resource_ctpb5"]
+script = ExtResource("7_o7p77")
+item_data = ExtResource("8_ssm0a")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_w0hhj"]
+script = ExtResource("6_mu3p2")
+slot_datas = Array[ExtResource("7_o7p77")]([null, SubResource("Resource_ctpb5"), null, null, null])
+
+[sub_resource type="Resource" id="Resource_7l14t"]
+script = ExtResource("7_o7p77")
+item_data = ExtResource("10_71s2c")
+quantity = 5
 
 [node name="TrainScene" type="Node3D"]
 
@@ -50,9 +77,19 @@ transform = Transform3D(0.457018, 0, -0.38876, 0, 0.6, 0, 0.38876, 0, 0.457018, 
 
 [node name="ChangeScene" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29798, 150.303)
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChangeScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9128, 5.27233, -97.9898)
 shape = SubResource("BoxShape3D_8npaa")
 
+[node name="Chest" parent="." instance=ExtResource("5_17sv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22316, 2.15831, 87.4311)
+inventory_data = SubResource("Resource_w0hhj")
+
+[node name="PickUp" parent="." instance=ExtResource("9_5kvsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04411, 3.53043, 87.6354)
+slot_data = SubResource("Resource_7l14t")
+
 [connection signal="body_entered" from="ChangeScene" to="Player" method="_on_change_scene_body_entered"]
+[connection signal="toggle_inventory" from="Chest" to="Player" method="toggle_external_inventory"]

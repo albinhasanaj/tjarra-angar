@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://kk7it252vqjx"]
+
+[ext_resource type="Script" path="res://interactable/chest.gd" id="1_d6rv1"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_263f6"]
+[ext_resource type="Script" path="res://inventory/slot_Data.gd" id="3_7w7cy"]
+[ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="4_ime0q"]
+
+[sub_resource type="Resource" id="Resource_owqvj"]
+script = ExtResource("3_7w7cy")
+item_data = ExtResource("4_ime0q")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_1gcu7"]
+script = ExtResource("2_263f6")
+slot_datas = Array[ExtResource("3_7w7cy")]([SubResource("Resource_owqvj"), null, null, null, null])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fkqy"]
+albedo_color = Color(0.519922, 0.514912, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n23f2"]
+material = SubResource("StandardMaterial3D_4fkqy")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jy0a5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Chest" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_d6rv1")
+inventory_data = SubResource("Resource_1gcu7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_n23f2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("ConcavePolygonShape3D_jy0a5")

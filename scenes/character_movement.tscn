@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://un2cbtxwfbxe"]
+[gd_scene load_steps=9 format=3 uid="uid://cab4jq5fmjwft"]
 
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_bb78x"]
 [ext_resource type="Texture2D" uid="uid://cw2majejvnugg" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_bui6w"]
 [ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_iwpjb"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://27nlaidlylw5" path="res://scenes/player.tscn" id="3_6qduy"]
+=======
+[ext_resource type="PackedScene" uid="uid://cwq4x6kbwj0o" path="res://scenes/player.tscn" id="3_6qduy"]
+>>>>>>> 4fdc0cf7b446a7569b9307ccdeb4c01d5f53e87c
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53lld"]
 albedo_texture = ExtResource("1_bui6w")
@@ -21,6 +26,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="world" type="Node3D"]
+script = ExtResource("1_bb78x")
 
 [node name="stage" type="Node3D" parent="."]
 
