@@ -19,7 +19,7 @@ var lerp_speed = 10.0
 
 # input vars
 var direction = Vector3.ZERO
-const mouse_sens = 0.15
+var mouse_sens = 0.15
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -30,17 +30,26 @@ func _ready():
 func _input(event):
 	#Mouse looking logic
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
+		mouse_sens = SettingsManager.mouse_sens
+		rotate_y(deg_to_rad(-event.relative.x * 0.1 * mouse_sens))
+		head.rotate_x(deg_to_rad(-event.relative.y * 0.1 * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89),deg_to_rad(89))
 		
 		
 		#make you able to esc to close game
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+#	if Input.is_action_just_pressed("quit"):
+#		get_tree().quit()
+		
+	if Input.is_action_just_pressed("menu"):
+		$IngameMenu.visible = not $IngameMenu.visible
 	
 func _physics_process(delta):
 	# Handle movement state
+	
+	if $IngameMenu.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	#Crouching
 	if Input.is_action_pressed("crouch"):

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cni1dqp56ye2n"]
+
+[ext_resource type="PackedScene" uid="uid://cl33tm381c51f" path="res://scenes/coach.tscn" id="1_av5du"]
+[ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_1g8km"]
+[ext_resource type="PackedScene" uid="uid://27nlaidlylw5" path="res://scenes/player.tscn" id="3_qkmm3"]
+[ext_resource type="PackedScene" uid="uid://ejie0bmf38rv" path="res://scenes/nafs_animation.tscn" id="4_pcfnq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nr7d3"]
+panorama = ExtResource("2_1g8km")
+
+[sub_resource type="Sky" id="Sky_7470q"]
+sky_material = SubResource("PanoramaSkyMaterial_nr7d3")
+
+[sub_resource type="Environment" id="Environment_ckxgo"]
+background_mode = 2
+sky = SubResource("Sky_7470q")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8npaa"]
+size = Vector3(14.1784, 9.63702, 7)
+
+[node name="TrainScene" type="Node3D"]
+
+[node name="Train" type="Node3D" parent="."]
+
+[node name="Coach" parent="Train" instance=ExtResource("1_av5du")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 13.9422, 3.00164, 7.7222)
+
+[node name="Coach2" parent="Train" instance=ExtResource("1_av5du")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 13.9368, 3.04684, 25.9002)
+
+[node name="Coach3" parent="Train" instance=ExtResource("1_av5du")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 13.9422, 3.00164, 43.9942)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_ckxgo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_qkmm3")]
+transform = Transform3D(-1, 0.000205853, 0.000126467, 0.000205844, 1, -3.68717e-05, -0.000126482, -3.68198e-05, -1, 14.0014, 3.81787, -0.689493)
+
+[node name="nafs_animation" parent="." instance=ExtResource("4_pcfnq")]
+transform = Transform3D(0.457018, 0, -0.38876, 0, 0.6, 0, 0.38876, 0, 0.457018, 15.1836, 3.07551, 4.5622)
+
+[node name="ChangeScene" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29798, 150.303)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangeScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9128, 5.27233, -97.9898)
+shape = SubResource("BoxShape3D_8npaa")
+
+[connection signal="body_entered" from="ChangeScene" to="Player" method="_on_change_scene_body_entered"]

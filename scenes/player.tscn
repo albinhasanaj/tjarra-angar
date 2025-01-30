@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdc283og7agoe"]
+[gd_scene load_steps=6 format=3 uid="uid://27nlaidlylw5"]
 
 [ext_resource type="Script" path="res://scripts/character_movement.gd" id="1_bf2ut"]
+[ext_resource type="PackedScene" uid="uid://bu3gfi0eu4pqo" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.tscn" id="2_5td6a"]
+[ext_resource type="PackedScene" uid="uid://c3qv5yb6vh3ch" path="res://scenes/menu_ui/settings_ui/settings.tscn" id="3_hilmp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bnj1g"]
 
@@ -27,3 +29,9 @@ current = true
 
 [node name="RayCast3D2" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
+
+[node name="IngameMenu" parent="." instance=ExtResource("2_5td6a")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("3_hilmp")]
+visible = false

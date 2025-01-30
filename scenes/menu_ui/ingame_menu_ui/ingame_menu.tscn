@@ -1,0 +1,159 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu3gfi0eu4pqo"]
+
+[ext_resource type="Script" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.gd" id="1_hjwvb"]
+[ext_resource type="Texture2D" uid="uid://clcyro7cjidq2" path="res://scenes/menu_ui/start_ui/homemade_background.png" id="2_5kwm8"]
+[ext_resource type="FontFile" uid="uid://dhkkjjns0j4s0" path="res://scenes/menu_ui/start_ui/ARCADECLASSIC.TTF" id="3_lmu6w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rle4q"]
+texture = ExtResource("2_5kwm8")
+modulate_color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxbrw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_558xe"]
+bg_color = Color(0.177273, 0.0952555, 0.22619, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyi8q"]
+bg_color = Color(0.177273, 0.0952555, 0.22619, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tsuh"]
+bg_color = Color(0.141176, 0.137255, 0.423529, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_size = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0hqj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnogn"]
+bg_color = Color(0.177273, 0.0952555, 0.22619, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia20k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w82mi"]
+bg_color = Color(0.177273, 0.0952555, 0.22619, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjwvb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rle4q")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rle4q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.5
+offset_top = -170.5
+offset_right = 374.5
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 33
+
+[node name="return_to_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.316238, 0.827368, 0.454706, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_color = Color(0, 0.423529, 0, 1)
+theme_override_fonts/font = ExtResource("3_lmu6w")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sxbrw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_558xe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nyi8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tsuh")
+text = "Return To Game
+"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.316238, 0.827368, 0.454706, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_color = Color(0, 0.423529, 0, 1)
+theme_override_fonts/font = ExtResource("3_lmu6w")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v0hqj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_558xe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnogn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tsuh")
+text = "Options
+"
+
+[node name="exit_to_main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.316238, 0.827368, 0.454706, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.423529, 0, 1)
+theme_override_colors/font_color = Color(0, 0.423529, 0, 1)
+theme_override_fonts/font = ExtResource("3_lmu6w")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ia20k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_558xe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w82mi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tsuh")
+text = "Exit To Main Menu
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_right = 216.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("3_lmu6w")
+theme_override_font_sizes/font_size = 75
+text = "TjARRA ANGAR (EARLy ACCESS)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/return_to_game" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_to_main_menu" to="." method="_on_exit_pressed"]
