@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6ma1dce7qw8g"
-path.s3tc="res://.godot/imported/jonnslägnehetutanför__Normal_.jpg-b1461b4b9f7695ee704d07f6840f32a7.s3tc.ctex"
+path.s3tc="res://.godot/imported/jonnslägnehetutanför__Normal_.jpg-552630a18f8dc3a4eb81613404570579.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/map/jonnslägnehetutanför__Normal_.jpg"
-dest_files=["res://.godot/imported/jonnslägnehetutanför__Normal_.jpg-b1461b4b9f7695ee704d07f6840f32a7.s3tc.ctex"]
+source_file="res://assets/models/Jonnslägenhetutanför/jonnslägnehetutanför__Normal_.jpg"
+dest_files=["res://.godot/imported/jonnslägnehetutanför__Normal_.jpg-552630a18f8dc3a4eb81613404570579.s3tc.ctex"]
 
 [params]
 

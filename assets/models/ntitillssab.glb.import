@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qdk3ob6838jq"
-path="res://.godot/imported/jonnslägnehetutanför.glb-79b72e6c0a09e59383c9174c4bd1b64b.scn"
+uid="uid://ma0nvjei12ys"
+path="res://.godot/imported/ntitillssab.glb-0757e9e0ac6f32a39dda0deb49e78c9f.scn"
 
 [deps]
 
-source_file="res://assets/models/Jonnslägenhetutanför/jonnslägnehetutanför.glb"
-dest_files=["res://.godot/imported/jonnslägnehetutanför.glb-79b72e6c0a09e59383c9174c4bd1b64b.scn"]
+source_file="res://assets/models/ntitillssab.glb"
+dest_files=["res://.godot/imported/ntitillssab.glb-0757e9e0ac6f32a39dda0deb49e78c9f.scn"]
 
 [params]
 

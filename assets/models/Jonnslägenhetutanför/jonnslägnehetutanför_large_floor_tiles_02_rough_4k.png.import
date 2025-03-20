@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxeo5wg0kef6y"
-path.s3tc="res://.godot/imported/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png-f1b5c18079b4a0c16ea6ed8f0e67d1f2.s3tc.ctex"
+path.s3tc="res://.godot/imported/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png-496037463ca17711250bc543b7d3b1d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/map/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png"
-dest_files=["res://.godot/imported/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png-f1b5c18079b4a0c16ea6ed8f0e67d1f2.s3tc.ctex"]
+source_file="res://assets/models/Jonnslägenhetutanför/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png"
+dest_files=["res://.godot/imported/jonnslägnehetutanför_large_floor_tiles_02_rough_4k.png-496037463ca17711250bc543b7d3b1d0.s3tc.ctex"]
 
 [params]
 

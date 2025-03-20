@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4o7fd13qd1k0"
-path.s3tc="res://.godot/imported/jonnslägnehetutanför_Smeared Wall_Normal.jpg-638581e897f2ab35657c8385d7ac6b42.s3tc.ctex"
+path.s3tc="res://.godot/imported/jonnslägnehetutanför_Smeared Wall_Normal.jpg-9ab5e5b89d63b67dea174e9dda3ae348.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/map/jonnslägnehetutanför_Smeared Wall_Normal.jpg"
-dest_files=["res://.godot/imported/jonnslägnehetutanför_Smeared Wall_Normal.jpg-638581e897f2ab35657c8385d7ac6b42.s3tc.ctex"]
+source_file="res://assets/models/Jonnslägenhetutanför/jonnslägnehetutanför_Smeared Wall_Normal.jpg"
+dest_files=["res://.godot/imported/jonnslägnehetutanför_Smeared Wall_Normal.jpg-9ab5e5b89d63b67dea174e9dda3ae348.s3tc.ctex"]
 
 [params]
 
