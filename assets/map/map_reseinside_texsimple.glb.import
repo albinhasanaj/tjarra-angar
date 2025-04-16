@@ -3,7 +3,11 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
+<<<<<<< Updated upstream
 uid="uid://cvycp2mh53uoy"
+=======
+uid="uid://4k478i4cc4hb"
+>>>>>>> Stashed changes
 path="res://.godot/imported/map_reseinside_texsimple.glb-81394f67a25c0c92ea757b12debc8271.scn"
 
 [deps]

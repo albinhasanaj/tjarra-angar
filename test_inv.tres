@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=12 format=3 uid="uid://0dio8s2lxag3"]
+
+[ext_resource type="Script" uid="uid://70vriwupwtcv" path="res://inventory/inventory_data.gd" id="1_ebrvi"]
+[ext_resource type="Script" uid="uid://cjbjsqm1u8v1b" path="res://inventory/slot_Data.gd" id="2_pdc2r"]
+[ext_resource type="Resource" uid="uid://dot6pbpned5nc" path="res://item/items/apple.tres" id="3_gyhbe"]
+[ext_resource type="Resource" uid="uid://gbd3dstcqgcp" path="res://item/items/health_potion.tres" id="3_y453e"]
+[ext_resource type="Resource" uid="uid://cbouwvrk27ccw" path="res://item/items/ireon_helm.tres" id="4_qwk0u"]
+[ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="4_xu464"]
+
+[sub_resource type="Resource" id="Resource_6hmo1"]
+script = ExtResource("2_pdc2r")
+item_data = ExtResource("3_y453e")
+quantity = 8
+
+[sub_resource type="Resource" id="Resource_0rs1l"]
+script = ExtResource("2_pdc2r")
+item_data = ExtResource("4_qwk0u")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_v7d6c"]
+script = ExtResource("2_pdc2r")
+item_data = ExtResource("3_gyhbe")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_x0kca"]
+script = ExtResource("2_pdc2r")
+item_data = ExtResource("3_gyhbe")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_hqqab"]
+script = ExtResource("2_pdc2r")
+item_data = ExtResource("4_xu464")
+quantity = 1
+
+[resource]
+script = ExtResource("1_ebrvi")
+slot_datas = Array[ExtResource("2_pdc2r")]([SubResource("Resource_6hmo1"), SubResource("Resource_0rs1l"), SubResource("Resource_v7d6c"), SubResource("Resource_x0kca"), null, null, null, SubResource("Resource_hqqab"), null, null, null, null, null, null, null, null, null, null])

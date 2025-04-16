@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://bqpxewofjxev7"
+=======
+uid="uid://cu3r42gkb6t32"
+>>>>>>> Stashed changes
 path.s3tc="res://.godot/imported/ntitillssab_frånntitillssab.png-0e6c83a5f3cb925e5958987fd9f9e533.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],

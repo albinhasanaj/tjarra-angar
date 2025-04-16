@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bu3gfi0eu4pqo"]
+[gd_scene load_steps=12 format=3 uid="uid://bu3gfi0eu4pqo"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://ddvdgv1xgctq2" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.gd" id="1_hjwvb"]
 [ext_resource type="Texture2D" uid="uid://clcyro7cjidq2" path="res://scenes/menu_ui/start_ui/homemade_background.png" id="2_5kwm8"]
+=======
+[ext_resource type="Script" uid="uid://b7ke1a1skfswi" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.gd" id="1_hjwvb"]
+>>>>>>> Stashed changes
 [ext_resource type="FontFile" uid="uid://dhkkjjns0j4s0" path="res://scenes/menu_ui/start_ui/ARCADECLASSIC.TTF" id="3_lmu6w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rle4q"]
-texture = ExtResource("2_5kwm8")
 modulate_color = Color(0.205117, 0.205117, 0.205117, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxbrw"]

@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://27nlaidlylw5"]
+
+[ext_resource type="Script" uid="uid://bi1glth5yn8cq" path="res://scripts/character_movement.gd" id="1_bf2ut"]
+[ext_resource type="PackedScene" uid="uid://bu3gfi0eu4pqo" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.tscn" id="2_5td6a"]
+[ext_resource type="Resource" uid="uid://0dio8s2lxag3" path="res://test_inv.tres" id="2_sfloq"]
+[ext_resource type="PackedScene" uid="uid://c3qv5yb6vh3ch" path="res://scenes/menu_ui/settings_ui/settings.tscn" id="3_hilmp"]
+[ext_resource type="Texture2D" uid="uid://c21s4ahwwb0tm" path="res://UnderStamina.png" id="3_vs4kt"]
+[ext_resource type="PackedScene" uid="uid://d0mv3c3d1fi3m" path="res://inventory/inventory.tscn" id="4_0baey"]
+[ext_resource type="Script" uid="uid://cg7qev8gmqc1" path="res://inventory/inventory_interface.gd" id="4_87ah4"]
+[ext_resource type="Texture2D" uid="uid://d1wjex03jhxpp" path="res://Stamina.png" id="4_fnw4v"]
+[ext_resource type="PackedScene" uid="uid://dp0vehpmduhsa" path="res://inventory/slot.tscn" id="7_arqd0"]
+[ext_resource type="PackedScene" uid="uid://do8yt8smh85m0" path="res://inventory/hot_bar_inventory.tscn" id="8_xfe25"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bnj1g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dbrjj"]
+height = 1.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5brmr"]
+bg_color = Color(0, 0, 0, 0.411765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqsn"]
+bg_color = Color(1, 0.00392157, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_kvo40"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206066, 0)
+collision_layer = 2
+script = ExtResource("1_bf2ut")
+inventory_data = ExtResource("2_sfloq")
+
+[node name="standing_collision_shape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996884, 0)
+shape = SubResource("CapsuleShape3D_bnj1g")
+
+[node name="crouching_collision_shape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586155, 0)
+shape = SubResource("CapsuleShape3D_dbrjj")
+
+[node name="head2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head2"]
+current = true
+
+[node name="healthbar" type="ProgressBar" parent="head2/Camera3D"]
+offset_left = 41.0
+offset_top = 15.0
+offset_right = 431.0
+offset_bottom = 42.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5brmr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rcqsn")
+value = 100.0
+show_percentage = false
+script = SubResource("GDScript_kvo40")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="head2/Camera3D"]
+offset_left = 40.0
+offset_top = 55.0
+offset_right = 313.0
+offset_bottom = 83.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_vs4kt")
+texture_progress = ExtResource("4_fnw4v")
+
+[node name="InteractRay" type="RayCast3D" parent="head2/Camera3D"]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 4
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="IngameMenu" parent="." instance=ExtResource("2_5td6a")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("3_hilmp")]
+visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_87ah4")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("4_0baey")]
+layout_mode = 1
+anchor_right = 0.036
+anchor_bottom = 0.06
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -0.472004
+offset_bottom = 0.119999
+
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("4_0baey")]
+visible = false
+layout_mode = 1
+anchor_right = 0.036
+anchor_bottom = 0.06
+offset_left = 768.0
+offset_top = 235.0
+offset_right = 781.528
+offset_bottom = 250.12
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_arqd0")]
+visible = false
+modulate = Color(1, 1, 1, 0.486275)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="UI" instance=ExtResource("8_xfe25")]
+offset_left = 367.0
+offset_top = 494.0
+offset_right = 787.0
+offset_bottom = 574.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]

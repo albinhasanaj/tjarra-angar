@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl33tm381c51f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2une"]
+size = Vector3(14.0384, 0.535156, 44.9896)
+
+[node name="Coach" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0504627, -0.0500031, 0.0164871)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0845642, -0.232422, 0.00263977)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Wall1" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 0, 0, 1, 7.34885, 4.44074, 0.0147896)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Wall2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -7.26065, 4.69314, 0.00263977)
+shape = SubResource("BoxShape3D_r2une")
+
+[node name="Taginredning" parent="StaticBody3D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null

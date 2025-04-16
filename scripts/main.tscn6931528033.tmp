@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwude83jm0f2l"]
+
+[ext_resource type="Texture2D" uid="uid://cw2majejvnugg" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_kiwsi"]
+[ext_resource type="Texture2D" uid="uid://csmiwithfkih2" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_kuelw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53lld"]
+albedo_texture = ExtResource("1_kiwsi")
+uv1_triplanar = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o47vf"]
+panorama = ExtResource("2_kuelw")
+
+[sub_resource type="Sky" id="Sky_7470q"]
+sky_material = SubResource("PanoramaSkyMaterial_o47vf")
+
+[sub_resource type="Environment" id="Environment_2usll"]
+background_mode = 2
+sky = SubResource("Sky_7470q")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="GDScript" id="GDScript_b6vgg"]
+script/source = "extends CharacterBody3D
+
+@onready var camera_pivot = $camera_pivot
+
+
+var current_speed = 5.0
+var health = 100
+const walking_speed = 5.0
+const sprinting_speed = 8.0
+const crouching_speed = 3.0
+
+const jump_velocity = 4.5
+
+const mouse_sens = 0.15
+
+var bullet =load(\"res://bullet.tscn\")
+@onready var pos =$bullet_position
+
+var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
+		camera_pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"sprint\"):
+		current_speed = sprinting_speed
+	else:
+		current_speed = walking_speed
+
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = jump_velocity
+
+	# Get the input direction and handle the movement/deceleration.
+	var input_dir = Input.get_vector(\"left\", \"right\", \"forward\", \"backward\")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
+
+	move_and_slide()
+	
+	# Shooting mechanism
+	if Input.is_action_just_pressed(\"Shoot\"):
+		var instance=bullet.instantiate()
+		instance.position=pos.global_position
+		
+		instance.transform.basis=pos.global_transform.basis
+		get_parent().add_child(instance)
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7tdh5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g45t"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i37ib"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mubn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pg86x"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="world" type="Node3D"]
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_53lld")
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_2usll")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206066, 0)
+script = SubResource("GDScript_b6vgg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.094198, 0.996884, 0)
+shape = SubResource("CapsuleShape3D_7tdh5")
+
+[node name="camera_pivot" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="player/camera_pivot"]
+
+[node name="ProgressBar" type="ProgressBar" parent="player/camera_pivot/Camera3D"]
+offset_left = 27.0
+offset_top = 27.0
+offset_right = 291.0
+offset_bottom = 54.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0g45t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i37ib")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="player/camera_pivot/Camera3D"]
+offset_left = 29.0
+offset_top = 63.0
+offset_right = 252.0
+offset_bottom = 90.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7mubn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pg86x")
+value = 100.0
+show_percentage = false
+
+[node name="bullet_position" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636633, 1.43726, -2.28085)
