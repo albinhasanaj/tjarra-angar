@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://kk7it252vqjx"]
 
-[ext_resource type="Script" path="res://interactable/chest.gd" id="1_d6rv1"]
-[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_263f6"]
-[ext_resource type="Script" path="res://inventory/slot_Data.gd" id="3_7w7cy"]
+[ext_resource type="Script" uid="uid://bxups2vwr5guk" path="res://interactable/chest.gd" id="1_d6rv1"]
+[ext_resource type="Script" uid="uid://clhmuc0fjcuni" path="res://inventory/inventory_data.gd" id="2_263f6"]
+[ext_resource type="Script" uid="uid://dfmh0x7dyiuvt" path="res://inventory/slot_Data.gd" id="3_7w7cy"]
 [ext_resource type="Resource" uid="uid://bmj0i68qnpwak" path="res://item/items/Blue_book.tres" id="4_ime0q"]
 
 [sub_resource type="Resource" id="Resource_owqvj"]

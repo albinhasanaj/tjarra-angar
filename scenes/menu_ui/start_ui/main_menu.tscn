@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dhkkjjns0j4s0" path="res://scenes/menu_ui/start_ui/ARCADECLASSIC.TTF" id="1_6k4dy"]
 [ext_resource type="Texture2D" uid="uid://clcyro7cjidq2" path="res://scenes/menu_ui/start_ui/homemade_background.png" id="1_aprcu"]
-[ext_resource type="Script" path="res://scenes/menu_ui/start_ui/main_menu.gd" id="1_sm4my"]
+[ext_resource type="Script" uid="uid://crc8at0nd40eu" path="res://scenes/menu_ui/start_ui/main_menu.gd" id="1_sm4my"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rle4q"]
 texture = ExtResource("1_aprcu")

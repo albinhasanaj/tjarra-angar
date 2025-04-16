@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=4 format=3 uid="uid://gbd3dstcqgcp"]
 
-[ext_resource type="Script" path="res://item/item_data_consumable.gd" id="1_4wpeu"]
+[ext_resource type="Script" uid="uid://u54fpnabi16w" path="res://item/item_data_consumable.gd" id="1_4wpeu"]
 [ext_resource type="Texture2D" uid="uid://bxihntitefulv" path="res://item/#1 - Transparent Icons.png" id="2_tes4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8npgl"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bu3gfi0eu4pqo"]
 
-[ext_resource type="Script" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.gd" id="1_hjwvb"]
+[ext_resource type="Script" uid="uid://creqs07gub21q" path="res://scenes/menu_ui/ingame_menu_ui/ingame_menu.gd" id="1_hjwvb"]
 [ext_resource type="Texture2D" uid="uid://clcyro7cjidq2" path="res://scenes/menu_ui/start_ui/homemade_background.png" id="2_5kwm8"]
 [ext_resource type="FontFile" uid="uid://dhkkjjns0j4s0" path="res://scenes/menu_ui/start_ui/ARCADECLASSIC.TTF" id="3_lmu6w"]
 

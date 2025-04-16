@@ -2949,14 +2949,14 @@ tracks/51/keys = PackedFloat32Array(0, 1, -0.0233434, -0.0128991, -0.0677825, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6o5xv"]
 _data = {
-"Armature_001|Armature_001Action": SubResource("Animation_dyc5l"),
-"Armature_001|Armature_001|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_0g3sp"),
-"Armature_001|Armature_002|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_v1ll5"),
-"Armature_001|Armature|Armature|Armature|Armature|Armature|Armature|Armature|": SubResource("Animation_f324h"),
-"Armature|Armature_001Action": SubResource("Animation_xrbb1"),
-"Armature|Armature_001|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_kaaow"),
-"Armature|Armature_002|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_oe3qi"),
-"Armature|Armature|Armature|Armature|Armature|Armature|Armature|Armature|": SubResource("Animation_l4384")
+&"Armature_001|Armature_001Action": SubResource("Animation_dyc5l"),
+&"Armature_001|Armature_001|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_0g3sp"),
+&"Armature_001|Armature_002|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_v1ll5"),
+&"Armature_001|Armature|Armature|Armature|Armature|Armature|Armature|Armature|": SubResource("Animation_f324h"),
+&"Armature|Armature_001Action": SubResource("Animation_xrbb1"),
+&"Armature|Armature_001|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_kaaow"),
+&"Armature|Armature_002|Armature|Armature|Armature|Armature|Armature|Armat": SubResource("Animation_oe3qi"),
+&"Armature|Armature|Armature|Armature|Armature|Armature|Armature|Armature|": SubResource("Animation_l4384")
 }
 
 [node name="nafs_animation" instance=ExtResource("1_0v0ne")]

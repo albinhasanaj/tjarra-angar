@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c3qv5yb6vh3ch"]
 
-[ext_resource type="Script" path="res://scenes/menu_ui/settings_ui/settings.gd" id="1_cisaa"]
+[ext_resource type="Script" uid="uid://bsc85g52yhhwo" path="res://scenes/menu_ui/settings_ui/settings.gd" id="1_cisaa"]
 [ext_resource type="AudioStream" uid="uid://oylfmgwjim1t" path="res://scenes/menu_ui/settings_ui/Bomfunk MC's - Freestyler (Video Original Version).mp3" id="2_8ujg4"]
 [ext_resource type="Texture2D" uid="uid://ddjway7xj67oj" path="res://scenes/menu_ui/settings_ui/homemade_background_2.png" id="2_ptrcn"]
 [ext_resource type="FontFile" uid="uid://cg2mv3fl4pyoq" path="res://scenes/menu_ui/settings_ui/ARCADECLASSIC_2.TTF" id="2_qktny"]

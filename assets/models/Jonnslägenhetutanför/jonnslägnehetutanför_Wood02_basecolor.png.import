@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx1263qym33wm"
-path.s3tc="res://.godot/imported/jonnslägnehetutanför_Wood02_basecolor.png-22b922b3c683d906e33636d2badd8d7c.s3tc.ctex"
+path.s3tc="res://.godot/imported/jonnslägnehetutanför_Wood02_basecolor.png-187efe183ac38388ecdb938bd9dc763d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/map/jonnslägnehetutanför_Wood02_basecolor.png"
-dest_files=["res://.godot/imported/jonnslägnehetutanför_Wood02_basecolor.png-22b922b3c683d906e33636d2badd8d7c.s3tc.ctex"]
+source_file="res://assets/models/Jonnslägenhetutanför/jonnslägnehetutanför_Wood02_basecolor.png"
+dest_files=["res://.godot/imported/jonnslägnehetutanför_Wood02_basecolor.png-187efe183ac38388ecdb938bd9dc763d.s3tc.ctex"]
 
 [params]
 
